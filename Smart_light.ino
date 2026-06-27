@@ -4,7 +4,7 @@ const int LED_PIN = 2;
 const int DARK_THRESHOLD = 1500; 
 
 //TIMING CONFIGURATION
-// 30000 milliseconds = 30 seconds.
+// 15000 milliseconds = 15 seconds.
 const unsigned long LIGHT_ON_DURATION = 15000; 
 
 unsigned long lastMotionTime = 0; // Stores the timestamp of the last detected motion
@@ -34,7 +34,7 @@ void loop() {
   if (isLightOn && pirStatus == LOW) {
     // Check if 30 seconds have passed since the last recorded motion
     if (millis() - lastMotionTime >= LIGHT_ON_DURATION) {
-      digitalWrite(LED_PIN, LOW); // 30 seconds is up, turn the light OFF automatically
+      digitalWrite(LED_PIN, LOW); // 15 seconds is up, turn the light OFF automatically
       isLightOn = false;
       Serial.println("--> 15 seconds passed. Light turned OFF.");
     } else {
